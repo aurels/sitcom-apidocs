@@ -187,3 +187,147 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
 
+# Labs
+
+## Get all
+
+GET /api/labs
+
+## Get one
+
+GET /api/labs/:id
+
+# Users
+
+## Get all users
+
+GET    /api/users
+
+## Get one user
+
+GET    /api/users/:id
+
+## Create a user
+
+POST   /api/users
+
+## Update a user
+
+PUT    /api/users/:id
+
+## Delete a user
+
+DELETE /api/users/:id
+
+# Permissions
+
+## Get all permissions of a user
+
+GET    /api/users/:user_id/permissions
+
+## Get permissions of a user on a lab
+
+GET    /api/users/:user_id/permissions/:lab_id
+
+## Update permissions of a user on a lab
+
+PUT    /api/users/:user_id/permissions/:lab_id
+
+## Remove access of a user to a lab
+
+DELETE /api/users/:user_id/permissions/:lab_id
+
+# Contacts
+
+## Get all contacts
+
+GET    /api/labs/:lab_id/contacts
+
+## Get a contact
+
+GET    /api/labs/:lab_id/contacts/:id
+
+## Create a contact
+
+POST   /api/labs/:lab_id/contacts
+
+## Update a contact
+
+PUT    /api/labs/:lab_id/contacts/:id
+
+## Delete a contact
+
+DELETE /api/labs/:lab_id/contacts/:id
+
+# Tags
+
+## Get all tags
+
+GET /api/labs/:lab_id/tags
+
+## Get all tags of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/tags
+
+## Add some tags to a contact
+
+POST /api/labs/:lab_id/contacts/:contact_id/tags
+
+## Remove some tags from a contact
+
+DELETE /api/labs/:lab_id/contacts/:contact_id/tags
+
+# Organizations
+
+## Get all organizations
+
+GET /api/labs/:lab_id/organizations
+
+## Get an organization
+
+GET /api/labs/:lab_id/organizations/:id
+
+## Get all organizations of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/organizations
+
+## Get an organization of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/organizations/:id
+
+# Projects
+
+## Get all projects
+
+GET /api/labs/:lab_id/projects
+
+## Get a project
+
+GET /api/labs/:lab_id/projects/:id
+
+## Get all projects of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/projects
+
+## Get a project of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/projects/:id
+
+# Events
+
+## Get all events
+
+GET /api/labs/:lab_id/events
+
+## Get an event
+
+GET /api/labs/:lab_id/events/:id
+
+## Get all events of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/events
+
+## Get an event of a contact
+
+GET /api/labs/:lab_id/contacts/:contact_id/events/:id
+
