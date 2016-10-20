@@ -244,6 +244,12 @@ ID | The ID of the kitten to retrieve
 
 `GET /api/users/:user_id/permissions/:lab_id`
 
+## Grant a user access to a lab
+
+### HTTP Request
+
+`POST /api/users/:user_id/permissions/:lab_id`
+
 ## Update permissions of a user on a lab
 
 ### HTTP Request
