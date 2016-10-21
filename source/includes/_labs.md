@@ -10,9 +10,9 @@ This endpoint retrieves all labs.
 
 ### Query Parameters
 
-Parameter | Default
---------- | -------
-api_key   | null
+Parameter | Type   | Required
+--------- | ------ | --------
+api_key   | String | Yes
 
 ## Get one lab
 
@@ -24,7 +24,7 @@ This endpoint retrieves a specific lab.
 
 ### Query Parameters
 
-Parameter | Default
---------- | -------
-api_key   | null
-lab_id    | null
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+id        | Integer | Yes
