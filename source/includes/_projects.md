@@ -16,6 +16,54 @@ api_key   | String  | Yes
 lab_id    | Integer | Yes
 page      | Integer | No
 
+```shell
+curl -X GET https://example.com/api/labs/1/projects?api_key=XXXX"
+```
+
+```json
+{
+  "projects": [
+    {
+      "id": 11,
+      "name": "Awesome Plastic Shoes",
+      "description": "Facere et ea ullam aut quas.",
+      "start_date": "2017-01-08",
+      "end_date": "2017-01-19",
+      "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+      "contacts": [
+        {
+          "id": 18,
+          "name": "Renaud Debois"
+        },
+        {
+          "id": 18,
+          "name": "Freddy Mercury"
+        },
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Awesome Marble Hat",
+      "description": "Eaque beatae expedita incidunt et vel velit et quia.",
+      "start_date": "2016-11-25",
+      "end_date": "2016-12-05",
+      "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+      "contacts": [
+        {
+          "id": 36,
+          "name": "Sabine Dupont"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "total": 21,
+    "pages": 3,
+    "page": 1
+  }
+}
+```
+
 ## Get a project
 
 This endpoint retrieves a specific project.
@@ -31,6 +79,33 @@ Parameter   | Type    | Required
 api_key     | String  | Yes
 lab_id      | Integer | Yes
 project_id  | Integer | Yes
+
+```shell
+curl -X GET https://example.com/api/labs/1/projects/1?api_key=XXXX"
+```
+
+```json
+{
+  "project": {
+    "id": 11,
+    "name": "Awesome Plastic Shoes",
+    "description": "Facere et ea ullam aut quas.",
+    "start_date": "2017-01-08",
+    "end_date": "2017-01-19",
+    "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+    "contacts": [
+      {
+        "id": 18,
+        "name": "Renaud Debois"
+      },
+      {
+        "id": 18,
+        "name": "Freddy Mercury"
+      },
+    ]
+  },
+}
+```
 
 ## Get all projects of a contact
 
@@ -49,6 +124,54 @@ lab_id     | Integer | Yes
 contact_id | Integer | Yes
 page       | Integer | No
 
+```shell
+curl -X GET https://example.com/api/labs/1/contacts/1/projects?api_key=XXXX"
+```
+
+```json
+{
+  "projects": [
+    {
+      "id": 11,
+      "name": "Awesome Plastic Shoes",
+      "description": "Facere et ea ullam aut quas.",
+      "start_date": "2017-01-08",
+      "end_date": "2017-01-19",
+      "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+      "contacts": [
+        {
+          "id": 18,
+          "name": "Renaud Debois"
+        },
+        {
+          "id": 18,
+          "name": "Freddy Mercury"
+        },
+      ]
+    },
+    {
+      "id": 14,
+      "name": "Awesome Marble Hat",
+      "description": "Eaque beatae expedita incidunt et vel velit et quia.",
+      "start_date": "2016-11-25",
+      "end_date": "2016-12-05",
+      "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+      "contacts": [
+        {
+          "id": 36,
+          "name": "Sabine Dupont"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "total": 21,
+    "pages": 3,
+    "page": 1
+  }
+}
+```
+
 ## Get a project of a contact
 
 This endpoint retrieves a specific project of a specific contact.
@@ -65,3 +188,30 @@ api_key    | String  | Yes
 lab_id     | Integer | Yes
 contact_id | Integer | Yes
 project_id | Integer | Yes
+
+```shell
+curl -X GET https://example.com/api/labs/1/contacts/1/projects/1?api_key=XXXX"
+```
+
+```json
+{
+  "project": {
+    "id": 11,
+    "name": "Awesome Plastic Shoes",
+    "description": "Facere et ea ullam aut quas.",
+    "start_date": "2017-01-08",
+    "end_date": "2017-01-19",
+    "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=A&w=200&h=200",
+    "contacts": [
+      {
+        "id": 18,
+        "name": "Renaud Debois"
+      },
+      {
+        "id": 18,
+        "name": "Freddy Mercury"
+      },
+    ]
+  },
+}
+```

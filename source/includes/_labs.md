@@ -14,6 +14,37 @@ Parameter | Type   | Required
 --------- | ------ | --------
 api_key   | String | Yes
 
+```shell
+curl -X GET https://example.com/api/labs?api_key=XXXX"
+```
+
+```json
+{
+  "labs": [
+    {
+      "id": 2,
+      "name": "e-Health",
+      "url": "http://sitcom.dev/e-health"
+    },
+    {
+      "id": 3,
+      "name": "Fake",
+      "url": "http://sitcom.dev/fake"
+    },
+    {
+      "id": 4,
+      "name": "fake2",
+      "url": "http://sitcom.dev/fake2"
+    },
+    {
+      "id": 1,
+      "name": "Smart Gastronomy Lab",
+      "url": "http://sitcom.dev/smart-gastronomy-lab"
+    }
+  ]
+}
+```
+
 ## Get one lab
 
 This endpoint retrieves a specific lab.
@@ -28,3 +59,17 @@ Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
 id        | Integer | Yes
+
+```shell
+curl -X GET https://example.com/api/labs/1?api_key=XXXX"
+```
+
+```json
+{
+  "lab": {
+    "id": 1,
+    "name": "Smart Gastronomy Lab",
+    "url": "http://sitcom.dev/smart-gastronomy-lab"
+  }
+}
+```

@@ -16,6 +16,67 @@ api_key   | String  | Yes
 lab_id    | Integer | Yes
 page      | Integer | No
 
+```shell
+curl -X GET https://example.com/api/labs/1/contacts?api_key=XXXX"
+```
+
+```json
+{
+  "contacts": [
+    {
+      "id": 1,
+      "name": "Juliette Verne",
+      "first_name": "Juliette",
+      "last_name": "Verne",
+      "active": true,
+      "email": "juliettev@hotmail.com",
+      "phone": "",
+      "twitter_url": "",
+      "linkedin_url": "",
+      "facebook_url": "",
+      "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=AD&w=200&h=200",
+      "address": "",
+      "address_street": "",
+      "address_zip_code": "",
+      "address_city": "",
+      "address_country": "",
+      "organizations": [],
+      "projects": [
+        {
+          "id": 9,
+          "name": "Practical Aluminum Bottle"
+        },
+        {
+          "id": 14,
+          "name": "Awesome Marble Hat"
+        }
+      ],
+      "events": [
+        {
+          "id": 30,
+          "name": "Vinegar cronut roof dreamcatcher."
+        }
+      ],
+      "fields": [
+        {
+          "id": 1,
+          "name": "amateur"
+        },
+        {
+          "id": 8,
+          "name": "Designeuse"
+        }
+      ]
+    }
+  ],
+  "pagination": {
+    "total": 1,
+    "pages": 1,
+    "page": 1
+  }
+}
+```
+
 ## Get a contact
 
 This endpoint retrieves a specific contact.
@@ -31,6 +92,60 @@ Parameter | Type    | Required
 api_key   | String  | Yes
 lab_id    | Integer | Yes
 id        | Integer | Yes
+
+```shell
+curl -X GET https://example.com/api/labs/1/contacts/1?api_key=XXXX"
+```
+
+```json
+{
+  "contact": {
+    "id": 1,
+    "name": "Juliette Verne",
+    "first_name": "Juliette",
+    "last_name": "Verne",
+    "active": true,
+    "email": "juliettev@hotmail.com",
+    "phone": "",
+    "twitter_url": "",
+    "linkedin_url": "",
+    "facebook_url": "",
+    "picture_url": "https://placeholdit.imgix.net/~text?txtsize=68&txt=AD&w=200&h=200",
+    "address": "",
+    "address_street": "",
+    "address_zip_code": "",
+    "address_city": "",
+    "address_country": "",
+    "organizations": [],
+    "projects": [
+      {
+        "id": 9,
+        "name": "Practical Aluminum Bottle"
+      },
+      {
+        "id": 14,
+        "name": "Awesome Marble Hat"
+      }
+    ],
+    "events": [
+      {
+        "id": 30,
+        "name": "Vinegar cronut roof dreamcatcher."
+      }
+    ],
+    "fields": [
+      {
+        "id": 1,
+        "name": "amateur"
+      },
+      {
+        "id": 8,
+        "name": "Designeuse"
+      }
+    ]
+  }
+}
+```
 
 ## Create a contact
 
@@ -63,6 +178,14 @@ contact[organization_ids][] | Integer[] | No
 contact[project_ids][]      | Integer[] | No
 contact[event_ids][]        | Integer[] | No
 
+```shell
+
+```
+
+```json
+
+```
+
 ## Update a contact
 
 This endpoint updates an existing contact.
@@ -94,6 +217,14 @@ contact[organization_ids][] | Integer[] | No
 contact[project_ids][]      | Integer[] | No
 contact[event_ids][]        | Integer[] | No
 
+```shell
+
+```
+
+```json
+
+```
+
 ## Delete a contact
 
 This endpoint deletes an existing contact.
@@ -109,3 +240,11 @@ Parameter | Type    | Required
 api_key   | String  | Yes
 lab_id    | Integer | Yes
 id        | Integer | Yes
+
+```shell
+
+```
+
+```json
+
+```
