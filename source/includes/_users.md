@@ -2,18 +2,6 @@
 
 ## Get all users
 
-This endpoint retrieves all users.
-
-### HTTP Request
-
-`GET /api/users`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-
 ```shell
 curl -X GET https://example.com/api/users?api_key=XXXX"
 ```
@@ -81,37 +69,19 @@ curl -X GET https://example.com/api/users?api_key=XXXX"
 }
 ```
 
+This endpoint retrieves all users.
+
+### HTTP Request
+
+`GET /api/users`
+
+### Query Parameters
+
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+
 ## Get one user
-
-This endpoint retrieves a specific user.
-
-### HTTP Request
-
-`GET /api/users/:id`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-id        | Integer | Yes
-
-## Create a user
-
-This endpoint creates a new user.
-
-### HTTP Request
-
-`POST /api/users`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-name      | String  | Yes
-email     | String  | Yes
-password  | String  | Yes
 
 ```shell
 curl -X GET https://example.com/api/users/1?api_key=XXXX"
@@ -142,7 +112,69 @@ curl -X GET https://example.com/api/users/1?api_key=XXXX"
 }
 ```
 
+This endpoint retrieves a specific user.
+
+### HTTP Request
+
+`GET /api/users/:id`
+
+### Query Parameters
+
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+id        | Integer | Yes
+
+## Create a user
+
+```shell
+curl -X POST -H "Content-Type: multipart/form-data;" -F "user[name]=John Doe" -F "user[email]=john.doe@gmail.com" -F "user[password]=superpassword" "http://example.com/api/users?api_key=XXXX"
+```
+
+```json
+{
+  "user": {
+    "id": 6,
+    "name": "John Doe",
+    "email": "john.doe@gmail.com",
+    "admin": false,
+    "labs": []
+  }
+}
+```
+
+This endpoint creates a new user.
+
+### HTTP Request
+
+`POST /api/users`
+
+### Query Parameters
+
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+name      | String  | Yes
+email     | String  | Yes
+password  | String  | Yes
+
 ## Update a user
+
+```shell
+curl -X PUT -H "Content-Type: multipart/form-data;" -F "user[email]=john.doe.new@gmail.com" "http://example.com/api/users/6?api_key=XXXX"
+```
+
+```json
+{
+  "user": {
+    "id": 6,
+    "name": "John Doe",
+    "email": "john.doe.new@gmail.com",
+    "admin": false,
+    "labs": []
+  }
+}
+```
 
 This endpoint updates an existing user.
 
@@ -160,15 +192,11 @@ name      | String  | Yes
 email     | String  | Yes
 password  | String  | Yes
 
-```shell
-
-```
-
-```json
-
-```
-
 ## Delete a user
+
+```shell
+curl -X DELETE -H "Content-Type: multipart/form-data;" "http://example.com/api/users/1?api_key=XXXX"
+```
 
 This endpoint deletes an existing user.
 
@@ -183,10 +211,3 @@ Parameter | Type    | Required
 api_key   | String  | Yes
 id        | Integer | Yes
 
-```shell
-
-```
-
-```json
-
-```

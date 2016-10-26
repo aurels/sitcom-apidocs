@@ -2,19 +2,6 @@
 
 ## Get all tags of a lab
 
-This endpoint retrieves all tags of a lab.
-
-### HTTP Request
-
-`GET /api/labs/:lab_id/tags`
-
-### Query Parameters
-
-Parameter  | Type    | Required
----------  | ----    | --------
-api_key    | String  | Yes
-lab_id     | Integer | Yes
-
 ```shell
 curl -X GET https://example.com/api/labs/1/tags?api_key=XXXX"
 ```
@@ -50,13 +37,11 @@ curl -X GET https://example.com/api/labs/1/tags?api_key=XXXX"
 }
 ```
 
-## Get all tags of a contact
-
-This endpoint retrieves all tags of a specific contact.
+This endpoint retrieves all tags of a lab.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/contacts/:contact_id/tags`
+`GET /api/labs/:lab_id/tags`
 
 ### Query Parameters
 
@@ -64,7 +49,8 @@ Parameter  | Type    | Required
 ---------  | ----    | --------
 api_key    | String  | Yes
 lab_id     | Integer | Yes
-contact_id | Integer | Yes
+
+## Get all tags of a contact
 
 ```shell
 curl -X GET https://example.com/api/labs/1/contacts/1/tags?api_key=XXXX"
@@ -81,7 +67,44 @@ curl -X GET https://example.com/api/labs/1/contacts/1/tags?api_key=XXXX"
 }
 ```
 
+This endpoint retrieves all tags of a specific contact.
+
+### HTTP Request
+
+`GET /api/labs/:lab_id/contacts/:contact_id/tags`
+
+### Query Parameters
+
+Parameter  | Type    | Required
+---------  | ----    | --------
+api_key    | String  | Yes
+lab_id     | Integer | Yes
+contact_id | Integer | Yes
+
 ## Add some tags to a contact
+
+```shell
+curl -X POST -H "Content-Type: multipart/form-data;" -F "names[]=Tag 1" -F "names[]=Tag 2" "http://example.com/api/labs/1/contacts/2/tags?api_key=XXXX"
+```
+
+```json
+{
+  "tags": [
+    {
+      "name": "groupe 2",
+      "color": "#e595df"
+    },
+    {
+      "name": "Tag 1",
+      "color": "#e5bd95"
+    },
+    {
+      "name": "Tag 2",
+      "color": "#9ce595"
+    }
+  ]
+}
+```
 
 This endpoint adds one or many tags to a contact.
 
@@ -98,15 +121,22 @@ lab_id     | Integer  | Yes
 contact_id | Integer  | Yes
 names[]    | String[] | Yes
 
-```shell
+## Delete some tags from a contact
 
+```shell
+curl -X DELETE -H "Content-Type: multipart/form-data;" -F "names[]=Tag 1" -F "names[]=Tag 2" "http://example.com/api/labs/1/contacts/2/tags?api_key=XXX"
 ```
 
 ```json
-
+{
+  "tags": [
+    {
+      "name": "groupe 2",
+      "color": "#e595df"
+    }
+  ]
+}
 ```
-
-## Delete some tags from a contact
 
 This endpoint deletes one or many tags from a contact.
 
@@ -122,11 +152,3 @@ api_key    | String   | Yes
 lab_id     | Integer  | Yes
 contact_id | Integer  | Yes
 names[]    | String[] | Yes
-
-```shell
-
-```
-
-```json
-
-```

@@ -2,20 +2,6 @@
 
 ## Get all events
 
-This endpoint retrieves all events.
-
-### HTTP Request
-
-`GET /api/labs/:lab_id/events`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-lab_id    | Integer | Yes
-page      | Integer | No
-
 ```shell
 curl -X GET https://example.com/api/labs/1/events?api_key=XXXX"
 ```
@@ -65,13 +51,11 @@ curl -X GET https://example.com/api/labs/1/events?api_key=XXXX"
 }
 ```
 
-## Get an event
-
-This endpoint retrieves a specific event.
+This endpoint retrieves all events.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/events/:id`
+`GET /api/labs/:lab_id/events`
 
 ### Query Parameters
 
@@ -79,7 +63,9 @@ Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
 lab_id    | Integer | Yes
-event_id  | Integer | Yes
+page      | Integer | No
+
+## Get an event
 
 ```shell
 curl -X GET https://example.com/api/labs/1/events/1?api_key=XXXX"
@@ -105,22 +91,21 @@ curl -X GET https://example.com/api/labs/1/events/1?api_key=XXXX"
 }
 ```
 
-## Get all events of a contact
-
-This endpoint retrieves all events of a specific contact.
+This endpoint retrieves a specific event.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/contacts/:contact_id/events`
+`GET /api/labs/:lab_id/events/:id`
 
 ### Query Parameters
 
-Parameter  | Type    | Required
----------  | ----    | --------
-api_key    | String  | Yes
-lab_id     | Integer | Yes
-contact_id | Integer | Yes
-page       | Integer | No
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+lab_id    | Integer | Yes
+event_id  | Integer | Yes
+
+## Get all events of a contact
 
 ```shell
 curl -X GET https://example.com/api/labs/1/contacts/1/events/1?api_key=XXXX"
@@ -171,13 +156,11 @@ curl -X GET https://example.com/api/labs/1/contacts/1/events/1?api_key=XXXX"
 }
 ```
 
-## Get an event of a contact
-
-This endpoint retrieves a specific event of a specific contact.
+This endpoint retrieves all events of a specific contact.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/contacts/:contact_id/events/:id`
+`GET /api/labs/:lab_id/contacts/:contact_id/events`
 
 ### Query Parameters
 
@@ -186,7 +169,9 @@ Parameter  | Type    | Required
 api_key    | String  | Yes
 lab_id     | Integer | Yes
 contact_id | Integer | Yes
-event_id   | Integer | Yes
+page       | Integer | No
+
+## Get an event of a contact
 
 ```shell
 curl -X GET https://example.com/api/labs/1/contacts/1/events/1?api_key=XXXX"
@@ -211,3 +196,18 @@ curl -X GET https://example.com/api/labs/1/contacts/1/events/1?api_key=XXXX"
   }
 }
 ```
+
+This endpoint retrieves a specific event of a specific contact.
+
+### HTTP Request
+
+`GET /api/labs/:lab_id/contacts/:contact_id/events/:id`
+
+### Query Parameters
+
+Parameter  | Type    | Required
+---------  | ----    | --------
+api_key    | String  | Yes
+lab_id     | Integer | Yes
+contact_id | Integer | Yes
+event_id   | Integer | Yes

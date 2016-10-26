@@ -2,18 +2,6 @@
 
 ## Get all labs
 
-This endpoint retrieves all labs.
-
-### HTTP Request
-
-`GET /api/labs`
-
-### Query Parameters
-
-Parameter | Type   | Required
---------- | ------ | --------
-api_key   | String | Yes
-
 ```shell
 curl -X GET https://example.com/api/labs?api_key=XXXX"
 ```
@@ -44,21 +32,19 @@ curl -X GET https://example.com/api/labs?api_key=XXXX"
   ]
 }
 ```
-
-## Get one lab
-
-This endpoint retrieves a specific lab.
+This endpoint retrieves all labs.
 
 ### HTTP Request
 
-`GET /api/labs/:id`
+`GET /api/labs`
 
 ### Query Parameters
 
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-id        | Integer | Yes
+Parameter | Type   | Required
+--------- | ------ | --------
+api_key   | String | Yes
+
+## Get one lab
 
 ```shell
 curl -X GET https://example.com/api/labs/1?api_key=XXXX"
@@ -73,3 +59,16 @@ curl -X GET https://example.com/api/labs/1?api_key=XXXX"
   }
 }
 ```
+
+This endpoint retrieves a specific lab.
+
+### HTTP Request
+
+`GET /api/labs/:id`
+
+### Query Parameters
+
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+id        | Integer | Yes

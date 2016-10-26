@@ -2,19 +2,6 @@
 
 ## Get all permissions of a user
 
-This endpoint retrieves all permissions of a user (for all his accessible labs).
-
-### HTTP Request
-
-`GET /api/users/:user_id/permissions`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-user_id   | Integer | Yes
-
 ```shell
 curl -X GET https://example.com/api/users/1/permissions?api_key=XXXX"
 ```
@@ -62,13 +49,11 @@ curl -X GET https://example.com/api/users/1/permissions?api_key=XXXX"
 }
 ```
 
-## Get permissions of a user on a lab
-
-This endpoint retrieves the permissions of a user on a lab.
+This endpoint retrieves all permissions of a user (for all his accessible labs).
 
 ### HTTP Request
 
-`GET /api/users/:user_id/permissions/:lab_id`
+`GET /api/users/:user_id/permissions`
 
 ### Query Parameters
 
@@ -76,7 +61,8 @@ Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
 user_id   | Integer | Yes
-lab_id    | Integer | Yes
+
+## Get permissions of a user on a lab
 
 ```shell
 curl -X GET https://example.com/api/users/1/permissions/1?api_key=XXXX"
@@ -99,7 +85,42 @@ curl -X GET https://example.com/api/users/1/permissions/1?api_key=XXXX"
 }
 ```
 
+This endpoint retrieves the permissions of a user on a lab.
+
+### HTTP Request
+
+`GET /api/users/:user_id/permissions/:lab_id`
+
+### Query Parameters
+
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+user_id   | Integer | Yes
+lab_id    | Integer | Yes
+
 ## Grant a user access to a lab
+
+```shell
+curl -X POST -H "Content-Type: multipart/form-data;" -F "permission[can_read_contacts]=true" -F "permission[can_write_contacts]=false" -F "permission[can_read_organizations ]=true" -F "permission[can_write_organizations]=false" -F "permission[can_read_projects]=true" -F "permission[can_write_projects]=false" -F "permission[can_read_events]=false" -F "permission[can_write_events]=false" "http://example.com/api/users/2/permissions/2?api_key=XXXX"
+```
+
+```json
+{
+  "permission": {
+    "lab_id": 2,
+    "lab_name": "e-Health",
+    "can_read_contacts": true,
+    "can_write_contacts": false,
+    "can_read_organizations": true,
+    "can_write_organizations": false,
+    "can_read_projects": true,
+    "can_write_projects": false,
+    "can_read_events": false,
+    "can_write_events": false
+  }
+}
+```
 
 This endpoint grants a user access to a lab.
 
@@ -123,15 +144,28 @@ permission[can_write_projects]      | Boolean | No
 permission[can_read_events]         | Boolean | No
 permission[can_write_events]        | Boolean | No
 
-```shell
+## Update permissions of a user on a lab
 
+```shell
+curl -X PUT -H "Content-Type: multipart/form-data;" -F "permission[can_read_contacts]=false" -F "permission[can_read_organizations ]=false" -F "permission[can_read_projects]=false" "http://example.com/api/users/2/permissions/2?api_key=XXXX"
 ```
 
 ```json
-
+{
+  "permission": {
+    "lab_id": 2,
+    "lab_name": "e-Health",
+    "can_read_contacts": false,
+    "can_write_contacts": false,
+    "can_read_organizations": false,
+    "can_write_organizations": false,
+    "can_read_projects": false,
+    "can_write_projects": false,
+    "can_read_events": false,
+    "can_write_events": false
+  }
+}
 ```
-
-## Update permissions of a user on a lab
 
 This endpoint updates a user's permissions to a lab.
 
@@ -155,15 +189,11 @@ permission[can_write_projects]      | Boolean | No
 permission[can_read_events]         | Boolean | No
 permission[can_write_events]        | Boolean | No
 
-```shell
-
-```
-
-```json
-
-```
-
 ## Revoke access of a user to a lab
+
+```shell
+curl -X DELETE -H "Content-Type: multipart/form-data;" "http://example.com/api/users/1/permissions/1?api_key=XXXX"
+```
 
 This endpoint revokes a user's access to a lab.
 
@@ -178,11 +208,3 @@ Parameter | Type    | Required
 api_key   | String  | Yes
 user_id   | Integer | Yes
 lab_id    | Integer | Yes
-
-```shell
-
-```
-
-```json
-
-```

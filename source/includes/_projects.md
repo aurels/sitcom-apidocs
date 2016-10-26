@@ -2,20 +2,6 @@
 
 ## Get all projects
 
-This endpoint retrieves all projects.
-
-### HTTP Request
-
-`GET /api/labs/:lab_id/projects`
-
-### Query Parameters
-
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-lab_id    | Integer | Yes
-page      | Integer | No
-
 ```shell
 curl -X GET https://example.com/api/labs/1/projects?api_key=XXXX"
 ```
@@ -64,21 +50,21 @@ curl -X GET https://example.com/api/labs/1/projects?api_key=XXXX"
 }
 ```
 
-## Get a project
-
-This endpoint retrieves a specific project.
+This endpoint retrieves all projects.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/projects/:id`
+`GET /api/labs/:lab_id/projects`
 
 ### Query Parameters
 
-Parameter   | Type    | Required
----------   | ----    | --------
-api_key     | String  | Yes
-lab_id      | Integer | Yes
-project_id  | Integer | Yes
+Parameter | Type    | Required
+--------- | ----    | --------
+api_key   | String  | Yes
+lab_id    | Integer | Yes
+page      | Integer | No
+
+## Get a project
 
 ```shell
 curl -X GET https://example.com/api/labs/1/projects/1?api_key=XXXX"
@@ -107,22 +93,22 @@ curl -X GET https://example.com/api/labs/1/projects/1?api_key=XXXX"
 }
 ```
 
-## Get all projects of a contact
 
-This endpoint retrieves all projects of a specific contact.
+This endpoint retrieves a specific project.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/contacts/:contact_id/projects`
+`GET /api/labs/:lab_id/projects/:id`
 
 ### Query Parameters
 
-Parameter  | Type    | Required
----------  | ----    | --------
-api_key    | String  | Yes
-lab_id     | Integer | Yes
-contact_id | Integer | Yes
-page       | Integer | No
+Parameter   | Type    | Required
+---------   | ----    | --------
+api_key     | String  | Yes
+lab_id      | Integer | Yes
+project_id  | Integer | Yes
+
+## Get all projects of a contact
 
 ```shell
 curl -X GET https://example.com/api/labs/1/contacts/1/projects?api_key=XXXX"
@@ -172,13 +158,11 @@ curl -X GET https://example.com/api/labs/1/contacts/1/projects?api_key=XXXX"
 }
 ```
 
-## Get a project of a contact
-
-This endpoint retrieves a specific project of a specific contact.
+This endpoint retrieves all projects of a specific contact.
 
 ### HTTP Request
 
-`GET /api/labs/:lab_id/contacts/:contact_id/projects/:id`
+`GET /api/labs/:lab_id/contacts/:contact_id/projects`
 
 ### Query Parameters
 
@@ -187,7 +171,9 @@ Parameter  | Type    | Required
 api_key    | String  | Yes
 lab_id     | Integer | Yes
 contact_id | Integer | Yes
-project_id | Integer | Yes
+page       | Integer | No
+
+## Get a project of a contact
 
 ```shell
 curl -X GET https://example.com/api/labs/1/contacts/1/projects/1?api_key=XXXX"
@@ -212,6 +198,21 @@ curl -X GET https://example.com/api/labs/1/contacts/1/projects/1?api_key=XXXX"
         "name": "Freddy Mercury"
       },
     ]
-  },
+  }
 }
 ```
+
+This endpoint retrieves a specific project of a specific contact.
+
+### HTTP Request
+
+`GET /api/labs/:lab_id/contacts/:contact_id/projects/:id`
+
+### Query Parameters
+
+Parameter  | Type    | Required
+---------  | ----    | --------
+api_key    | String  | Yes
+lab_id     | Integer | Yes
+contact_id | Integer | Yes
+project_id | Integer | Yes
