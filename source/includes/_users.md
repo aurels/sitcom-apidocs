@@ -151,12 +151,12 @@ This endpoint creates a new user.
 
 ### Query Parameters
 
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-name      | String  | Yes
-email     | String  | Yes
-password  | String  | Yes
+Parameter      | Type    | Required
+---------      | ----    | --------
+api_key        | String  | Yes
+user[name]     | String  | Yes
+user[email]    | String  | Yes
+user[password] | String  | Yes
 
 ## Update a user
 
@@ -184,13 +184,13 @@ This endpoint updates an existing user.
 
 ### Query Parameters
 
-Parameter | Type    | Required
---------- | ----    | --------
-api_key   | String  | Yes
-id        | Integer | Yes
-name      | String  | Yes
-email     | String  | Yes
-password  | String  | Yes
+Parameter      | Type    | Required
+---------      | ----    | --------
+api_key        | String  | Yes
+id             | Integer | Yes
+user[name]     | String  | No
+user[email]    | String  | No
+user[password] | String  | No
 
 ## Delete a user
 
