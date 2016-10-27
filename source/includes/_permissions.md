@@ -60,7 +60,6 @@ This endpoint retrieves all permissions of a user (for all his accessible labs).
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-user_id   | Integer | Yes
 
 ## Get permissions of a user on a lab
 
@@ -96,8 +95,6 @@ This endpoint retrieves the permissions of a user on a lab.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-user_id   | Integer | Yes
-lab_id    | Integer | Yes
 
 ## Grant a user access to a lab
 
@@ -133,8 +130,6 @@ This endpoint grants a user access to a lab.
 Parameter                           | Type    | Required
 ---------                           | ----    | --------
 api_key                             | String  | Yes
-user_id                             | Integer | Yes
-lab_id                              | Integer | Yes
 permission[can_read_contacts]       | Boolean | No
 permission[can_write_contacts]      | Boolean | No
 permission[can_read_organizations ] | Boolean | No
@@ -178,8 +173,6 @@ This endpoint updates a user's permissions to a lab.
 Parameter                           | Type    | Required
 ---------                           | ----    | --------
 api_key                             | String  | Yes
-user_id                             | Integer | Yes
-lab_id                              | Integer | Yes
 permission[can_read_contacts]       | Boolean | No
 permission[can_write_contacts]      | Boolean | No
 permission[can_read_organizations ] | Boolean | No
@@ -206,5 +199,3 @@ This endpoint revokes a user's access to a lab.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-user_id   | Integer | Yes
-lab_id    | Integer | Yes

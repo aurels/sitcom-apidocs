@@ -123,7 +123,6 @@ This endpoint retrieves a specific user.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-id        | Integer | Yes
 
 ## Create a user
 
@@ -187,7 +186,6 @@ This endpoint updates an existing user.
 Parameter      | Type    | Required
 ---------      | ----    | --------
 api_key        | String  | Yes
-id             | Integer | Yes
 user[name]     | String  | No
 user[email]    | String  | No
 user[password] | String  | No
@@ -209,5 +207,4 @@ This endpoint deletes an existing user.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-id        | Integer | Yes
 

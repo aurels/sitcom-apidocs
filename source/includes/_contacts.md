@@ -74,7 +74,6 @@ This endpoint retrieves all contacts.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-lab_id    | Integer | Yes
 page      | Integer | No
 
 ## Get a contact
@@ -144,8 +143,6 @@ This endpoint retrieves a specific contact.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-lab_id    | Integer | Yes
-id        | Integer | Yes
 
 ## Create a contact
 
@@ -253,7 +250,6 @@ This endpoint updates an existing contact.
 Parameter                   | Type      | Required
 ---------                   | ----      | --------
 api_key                     | String    | Yes
-lab_id                      | Integer   | Yes
 contact[first_name]         | String    | Yes
 contact[last_name]          | String    | Yes
 contact[active]             | Boolean   | No
@@ -288,5 +284,4 @@ This endpoint deletes an existing contact.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-lab_id    | Integer | Yes
-id        | Integer | Yes
+

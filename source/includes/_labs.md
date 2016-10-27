@@ -71,4 +71,3 @@ This endpoint retrieves a specific lab.
 Parameter | Type    | Required
 --------- | ----    | --------
 api_key   | String  | Yes
-id        | Integer | Yes
