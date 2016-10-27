@@ -10,10 +10,10 @@ set :markdown,
     no_intra_emphasis: true
 
 # Assets
-set :css_dir,    '/api/docs/stylesheets'
-set :js_dir,     '/api/docs/javascripts'
-set :images_dir, '/api/docs/images'
-set :fonts_dir,  '/api/docs/fonts'
+set :css_dir,    'stylesheets'
+set :js_dir,     'javascripts'
+set :images_dir, 'images'
+set :fonts_dir,  'fonts'
 
 # Activate the syntax highlighter
 activate :syntax
@@ -33,7 +33,7 @@ configure :build do
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
-  activate :minify_javascript
+  # activate :minify_javascript
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
@@ -44,3 +44,21 @@ end
 set :port, 4567
 
 set :build_dir, '../sitcom/public/api/docs'
+
+after_build do |builder|
+  fix_paths_in_file = lambda do |file_path|
+    data = File.read(file_path)
+               .gsub('/stylesheets/', '/api/docs/stylesheets/')
+               .gsub('/javascripts/', '/api/docs/javascripts/')
+               .gsub('/fonts/',       '/api/docs/fonts/')
+               .gsub('/images/',      '/api/docs/images/')
+
+    File.open(file_path, 'w') do |file|
+      file.write(data)
+    end
+  end
+
+  fix_paths_in_file.call('../sitcom/public/api/docs/index.html')
+  fix_paths_in_file.call('../sitcom/public/api/docs/stylesheets/screen.css')
+  fix_paths_in_file.call('../sitcom/public/api/docs/stylesheets/print.css')
+end
